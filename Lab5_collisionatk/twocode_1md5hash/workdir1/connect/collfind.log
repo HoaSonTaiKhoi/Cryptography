@@ -1,0 +1,326 @@
+MD5 differential path toolbox
+Copyright (C) 2009 Marc Stevens
+http://homepages.cwi.nl/~stevens/
+
+delta_m[11] = [!18!]
+Q-3:	|11001111 10100010 11100001 00100101|
+Q-2:	|010-111+ 0110-0-+ +1111000 +-011+01|
+Q-1:	|00-++--- 1001-010 -100110+ --10+-00|
+Q0:	|+++0-0++ +1-++00+ 01+001+- -0+---01| ok p=1
+Q1:	|1+0-10-0 +.+1+..+ 0.+.0.-- .0-11..-| ok p=0.399414
+Q2:	|0-0-0000 +.+1...+ +...+.-1 1.+010.1| ok p=1
+Q3:	|.1.-.01- ..0.0.^- 1.0.0..- ..+1...+| ok p=1
+Q4:	|!+.+.0.0 1.-^.^+1 0...+.11 ..--1..1| ok p=1
+Q5:	|^-.-.+.1 ..++..00 ....1..0 .!-01..-| ok p=1
+Q6:	|!-.0.-1+ ..10..+. ....1!.- ..0--..+| ok p=0.998047
+Q7:	|.-^0.-0+ ..01..+. 0......- ..+0+..-| ok p=0.999023
+Q8:	|^++..+++ ...1..+. 0...1... ..+1+..+| ok p=1
+Q9:	|!00..10. ...1..+. -...10.1 .^-.1.^+| ok p=1
+Q10:	|.+1.1100 .0.-1.+1 +1..+11. 1.1.01+-| ok p=1
+Q11:	|0+1.0.-1 .1.+11+0 00.1+.1. 0^10+11+| ok p=1
+Q12:	|0+0.+^-+ ^-^0-0++ ++10+.-. -++1++--| ok p=1
+Q13:	|-0+.0-++ +++00111 101-+.+. +1+---00| ok p=1
+Q14:	|100^10+. 1-001+01 11-0.^0^ +1-11011| ok p=1
+Q15:	|11+..1-1 011-.1-. 0.-10.0. -.0+01..| ok p=0.692383
+Q16:	|0+..0.-. .+...1.. 1.+.0... 0.0..+..| ok p=0.269531
+Q17:	|0.^.1.0. .0.^.0^. -.-.1... +..^.-..| ok p=0.59375
+Q18:	|+^..+.1. .-...1.. ..+.-... +....1..| ok p=0.394531
+Q19:	|........ .-.0.+.. ^.+....0 -....-..| ok p=0.767578
+Q20:	|^...^... .001...0 ..1.^..1 -..0...0| ok p=1
+Q21:	|....0... .11-.^.1 ..1....- 0..1.^.1| ok p=0.463867
+Q22:	|....1... ..+....+ ........ 0..+...-| ok p=0.963867
+Q23:	|....+.0. ...^.... ..0....^ ........| ok p=0.963867
+Q24:	|.0....1. ..^....^ ..1...0. ...^...^| ok p=0.985352
+Q25:	|....^.-. ........ ..-...1. ........| ok p=0.733398
+Q26:	|0+...... .....0.. ......-. ........| ok p=0.94043
+Q27:	|1+....^. .....1.. ..^..... ........| ok p=0.739258
+Q28:	|--...... .....+.. ......^. ........| ok p=0.743164
+Q29:	|.0...... .....0.. ........ ........| ok p=1
+Q30:	|^1...... .....-.. ........ ........| ok p=1
+Q31:	|........ .....-.. ........ ........| ok p=0.75293
+Q32:	|........ ........ ........ ........| ok p=1
+Q33:	|........ .....!.. ........ ........| ok p=1
+Q34:	|........ ........ ........ ........| ok p=1
+Q35:	|........ ........ ........ ........| ok p=1
+Q36:	|........ ........ ........ ........| ok p=1
+Q37:	|........ ........ ........ ........| ok p=1
+Q38:	|........ ........ ........ ........| ok p=1
+Q39:	|........ ........ ........ ........| ok p=1
+Q40:	|........ ........ ........ ........| ok p=1
+Q41:	|........ ........ ........ ........| ok p=1
+Q42:	|........ ........ ........ ........| ok p=1
+Q43:	|........ ........ ........ ........| ok p=1
+Q44:	|........ ........ ........ ........| ok p=1
+Q45:	|........ ........ ........ ........| ok p=1
+Q46:	|........ ........ ........ ........| ok p=1
+Q47:	|........ ........ ........ ........| ok p=1
+Q48:	|........ ........ ........ ........| ok p=1
+Q49:	|........ ........ ........ ........| ok p=1
+Q50:	|........ ........ ........ ........| ok p=1
+Q51:	|........ ........ ........ ........| ok p=1
+Q52:	|........ ........ ........ ........| ok p=1
+Q53:	|........ ........ ........ ........| ok p=1
+Q54:	|........ ........ ........ ........| ok p=1
+Q55:	|........ ........ ........ ........| ok p=1
+Q56:	|........ ........ ........ ........| ok p=1
+Q57:	|........ ........ ........ ........| ok p=1
+Q58:	|........ ........ ........ ........| ok p=1
+Q59:	|........ ........ ........ ........| ok p=1
+Q60:	|...0.... ........ ........ ........| ok p=1
+Q61:	|...0.... ........ ........ ........| ok p=0.935547
+Q62:	|...+.... ........ ........ ........| ok p=1
+Q63:	|...+.... ........ ........ ........| ok p=0.948242
+Q64:	|...+.... ......-. ........ ........|
+Starting...
+20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+..20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+..20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+..1 0
+2 0
+4 0
+8 0
+16 0
+32 0
+64 0
+128 0
+256 0
+512 0
+1024 0
+2048 0
+4096 0
+8192 0
+16384 0
+23617 1
+32768 1
+65536 1
+101451 2
+131072 2
+262144 2
+482094 4
+524288 4
+20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.958525 8
+20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.1048576 11
+20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.20: Q5m5tunnel      = 4
+20: Q4m5tunnel      = 0
+20: Q14m6Q3m5tunnel = 0
+21: Q10m10tunnel    = 3
+21: Q9m10tunnel     = 4
+22: Q8Q12m15tunnel  = 1
+23: Q4m4tunnel      = 12
+24: Q9m9tunnel      = 7
+25: Q14Q3m14tunnel  = 0
+.Block 1: workdir1/coll1_2452672369
+bb 65 0b 3c 13 67 4e 88 1e 00 d6 52 61 44 67 dc 
+a8 01 71 54 5f 79 20 f5 63 a9 de 79 c6 75 7d 10 
+78 50 12 10 6c d7 72 d9 bd c5 1f f7 bf f7 5c c1 
+ef 0b fb e3 79 41 d2 1f 8a 09 fe ce 13 21 a1 9c 
+Block 2: workdir1/coll2_2452672369
+bb 65 0b 3c 13 67 4e 88 1e 00 d6 52 61 44 67 dc 
+a8 01 71 54 5f 79 20 f5 63 a9 de 79 c6 75 7d 10 
+78 50 12 10 6c d7 72 d9 bd c5 1f f7 bf f7 60 c1 
+ef 0b fb e3 79 41 d2 1f 8a 09 fe ce 13 21 a1 9c 
+Found collision!
